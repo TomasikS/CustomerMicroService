@@ -1,8 +1,11 @@
 package com.sovy;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,18 +22,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "users")
 @Path("/customers")
 public class CustomerResource {
-    // private static Map<Integer, Customer> DB = new HashMap<>(); 
-
     Database db = new Database();
 
     @GET
     @Produces("application/json")
     public List getAllCustomers() throws SQLException {
-        //  Customer  customers = new Customers();
-        //customers.setCustomers(new ArrayList<>(DB.values()));
-
         List<Customer> listOfcustomers = new ArrayList();
-        listOfcustomers = db.readData();
+        try {
+            listOfcustomers = db.readData();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return listOfcustomers;
     }
 
@@ -41,15 +45,23 @@ public class CustomerResource {
             return Response.status(400).entity("Please provide all mandatory inputs").build();
         }
          
-        //  customer.setUri("/user-management/"+customer.getId());
-        db.insertData(customer);
+        try {
+            //  customer.setUri("/user-management/"+customer.getId());
+            db.insertData(customer);
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return Response.status(201).build();
     }
 
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Response getCustomerById(@PathParam("id") int id) {
+    public Response getCustomerById(@PathParam("id") int id) throws IOException, SQLException, ClassNotFoundException {
         Customer customer = db.getCustomerById(id);
         if (customer == null) {
             return Response.status(404).build();
@@ -63,9 +75,26 @@ public class CustomerResource {
     @DELETE
     @Path("/customer/{id}")
     public Response deleteUser(@PathParam("id") int id) {
-        Customer customer = db.getCustomerById(id);
+        Customer customer = null;
+        try {
+            customer = db.getCustomerById(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (customer != null) {
-            db.remove(customer.getId());
+            try {
+                db.remove(customer.getId());
+            } catch (SQLException ex) {
+                Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            }
             return Response.status(200).build();
         }
         return Response.status(404).build();
@@ -88,24 +117,6 @@ public class CustomerResource {
         db.put(temp.getId(), temp);
         return Response.status(200).entity(temp).build();
     }
-/* 
+*/ 
  
-
-     static
-    {
-        User user1 = new User();
-        user1.setId(1);
-        user1.setFirstName("John");
-        user1.setLastName("Wick");
-        user1.setUri("/user-management/1");
- 
-        User user2 = new User();
-        user2.setId(2);
-        user2.setFirstName("Harry");
-        user2.setLastName("Potter");
-        user2.setUri("/user-management/2");
-         
-        DB.put(user1.getId(), user1);
-        DB.put(user2.getId(), user2);*/
-    //  }
 }
