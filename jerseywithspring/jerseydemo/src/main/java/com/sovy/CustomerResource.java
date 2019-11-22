@@ -17,14 +17,18 @@ import javax.ws.rs.core.Response;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @XmlAccessorType(XmlAccessType.NONE)
 @XmlRootElement(name = "users")
 @Path("/customers")
 public class CustomerResource {
-    Database db = new Database();
+ 
+    
+    @Autowired
+    private CustomerService db;
 
-    @GET
+  /*  @GET
     @Produces("application/json")
     public List getAllCustomers() throws SQLException {
         List<Customer> listOfcustomers = new ArrayList();
@@ -36,8 +40,9 @@ public class CustomerResource {
             Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listOfcustomers;
-    }
+    }*/
 
+    @Path("/customer/")
     @POST
     @Consumes("application/json")
     public Response createCustomer(Customer customer)  {
@@ -45,24 +50,27 @@ public class CustomerResource {
             return Response.status(400).entity("Please provide all mandatory inputs").build();
         }
          
-        try {
-            //  customer.setUri("/user-management/"+customer.getId());
-            db.insertData(customer);
-        } catch (SQLException ex) {
-            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return Response.status(201).build();
+     db.createProduct(customer);
+        return Response.status(200).build();
     }
 
-    @GET
+  /*  @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Response getCustomerById(@PathParam("id") int id) throws IOException, SQLException, ClassNotFoundException {
-        Customer customer = db.getCustomerById(id);
+    public Response getCustomerById(@PathParam("id") int id) {
+        Customer customer = null;
+        try {
+            customer = db.getCustomerById(id);
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(500).build();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(500).build();
+        } catch (IOException ex) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(500).build();
+        }
         if (customer == null) {
             return Response.status(404).build();
         }
@@ -75,15 +83,19 @@ public class CustomerResource {
     @DELETE
     @Path("/customer/{id}")
     public Response deleteUser(@PathParam("id") int id) {
+            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, id);
         Customer customer = null;
         try {
             customer = db.getCustomerById(id);
         } catch (SQLException ex) {
             Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(500).build();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(500).build();
         } catch (IOException ex) {
             Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(500).build();
         }
         if (customer != null) {
             try {
