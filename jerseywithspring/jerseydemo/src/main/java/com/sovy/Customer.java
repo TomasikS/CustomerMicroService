@@ -1,11 +1,17 @@
 package com.sovy;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -28,7 +34,8 @@ public class Customer implements Serializable {
     private String lastname;
     @XmlElement(name = "idbook")
     private int idbook;*/
-    public Customer(String Firstname, String Lastname, String Address, String Sex, String Postalcode, String email, String password, String datumregistracie, String rola, String preferedLang, String mena) {
+    //Settings settings
+    public Customer(String Firstname, String Lastname, String Address, String Sex, String Postalcode, String email, String password, String datumregistracie, String rola) {
         this.Firstname = Firstname;
         this.Lastname = Lastname;
         this.Address = Address;
@@ -38,21 +45,22 @@ public class Customer implements Serializable {
         this.password = password;
         this.datumregistracie = datumregistracie;
         this.rola = rola;
-        this.preferedLang = preferedLang;
-        this.mena = mena;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JoinColumn(name = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    private Settings settings;
+
     @Column(name = "Firstname")
     private String Firstname;
 
     @Column(name = "Lastname")
     private String Lastname;
-    
-    
+
     @Column(name = "Address")
     private String Address;
 
@@ -74,11 +82,13 @@ public class Customer implements Serializable {
     @Column(name = "rola")
     private String rola;
 
-    @Column(name = "preferedLang")
-    private String preferedLang;
+    public Settings getSettings() {
+        return settings;
+    }
 
-    @Column(name = "mena")
-    private String mena;
+    public void setSettings(Settings settings) {
+        this.settings = settings;
+    }
 
     public Customer() {
     }
@@ -161,22 +171,6 @@ public class Customer implements Serializable {
 
     public void setRola(String rola) {
         this.rola = rola;
-    }
-
-    public String getPreferedLang() {
-        return preferedLang;
-    }
-
-    public void setPreferedLang(String preferedLang) {
-        this.preferedLang = preferedLang;
-    }
-
-    public String getMena() {
-        return mena;
-    }
-
-    public void setMena(String mena) {
-        this.mena = mena;
     }
 
 }

@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author stefan.tomasik
  */
 @Repository
-public interface CustomerRepository  extends JpaRepository<Customer, Long>  {
-    
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
 }

@@ -10,6 +10,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -23,12 +24,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 @XmlRootElement(name = "users")
 @Path("/customers")
 public class CustomerResource {
- 
-    
+
     @Autowired
     private CustomerService db;
 
-  /*  @GET
+    /*  @GET
     @Produces("application/json")
     public List getAllCustomers() throws SQLException {
         List<Customer> listOfcustomers = new ArrayList();
@@ -41,36 +41,24 @@ public class CustomerResource {
         }
         return listOfcustomers;
     }*/
-
-    @Path("/customer/")
-    @POST
+    @Path("customer/{id}")
+    @PUT
     @Consumes("application/json")
-    public Response createCustomer(Customer customer)  {
+    public Response createCustomer(Customer customer) {
         if (customer.getFirstname() == null || customer.getLastname() == null) {
             return Response.status(400).entity("Please provide all mandatory inputs").build();
         }
-         
-     db.createProduct(customer);
+
+        db.createProduct(customer);
         return Response.status(200).build();
     }
 
-  /*  @GET
-    @Path("/{id}")
+    @GET
+    @Path("customer/{id}")
     @Produces("application/json")
     public Response getCustomerById(@PathParam("id") int id) {
         Customer customer = null;
-        try {
-            customer = db.getCustomerById(id);
-        } catch (SQLException ex) {
-            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
-            return Response.status(500).build();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
-            return Response.status(500).build();
-        } catch (IOException ex) {
-            Logger.getLogger(CustomerResource.class.getName()).log(Level.SEVERE, null, ex);
-            return Response.status(500).build();
-        }
+        customer = db.getProductById(id);
         if (customer == null) {
             return Response.status(404).build();
         }
@@ -79,7 +67,8 @@ public class CustomerResource {
                 .entity(customer)
                 .build();
     }
-    
+
+    /* 
     @DELETE
     @Path("/customer/{id}")
     public Response deleteUser(@PathParam("id") int id) {
@@ -129,6 +118,5 @@ public class CustomerResource {
         db.put(temp.getId(), temp);
         return Response.status(200).entity(temp).build();
     }
-*/ 
- 
+     */
 }

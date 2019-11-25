@@ -13,12 +13,10 @@ import org.springframework.stereotype.Service;
  *
  * @author stefan.tomasik
  */
-
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 
-    
     @Autowired
     private CustomerRepository productRepository;
 
@@ -28,7 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
      */
     @Override
     public void createProduct(Customer product) {
-          productRepository.save(product);
+        productRepository.save(product);
     }
 
     @Override
@@ -45,5 +43,5 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteProduct(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

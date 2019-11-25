@@ -1,0 +1,9 @@
+com\sovy\CustomerServiceImpl.class
+com\sovy\JerseydemoApplication.class
+com\sovy\CustomerResource.class
+com\sovy\Customer.class
+com\sovy\CustomerService.class
+com\sovy\CustomerRepository.class
+com\sovy\JerseyConfig.class
+com\sovy\Settings.class
+com\sovy\Company.class
