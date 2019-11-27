@@ -2,6 +2,7 @@ package com.sovy;
 
 import com.sovy.service.CustomerService;
 import com.sovy.model.Customer;
+import com.sovy.repository.SettingsRepository;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -20,6 +21,9 @@ public class CustomerResource {
 
     @Autowired
     CustomerService db;
+    
+        @Autowired
+    private SettingsRepository userProfileRepository;
 
     @Path("customer/{id}")
     @PUT

@@ -6,12 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
-
+import javax.persistence.OneToOne;
 
 @Entity
-@Table(name = "Pouzivatel")
+//@Table(name = "Pouzivatel")
 public class Customer implements Serializable {
 
     public Long getId() {
@@ -53,8 +51,6 @@ public class Customer implements Serializable {
     public void setRola(String rola) {
         this.rola = rola;
     }
-
-   
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -130,6 +126,29 @@ public class Customer implements Serializable {
 
     public void setPostalcode(String Postalcode) {
         this.Postalcode = Postalcode;
+    }
+
+    @OneToOne(targetEntity = Settings.class)
+    private Settings settings;
+    
+    @OneToOne
+    private Company company;
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+    
+
+    public Settings getSettings() {
+        return settings;
+    }
+
+    public void setSettings(Settings settings) {
+        this.settings = settings;
     }
 
     public Customer() {

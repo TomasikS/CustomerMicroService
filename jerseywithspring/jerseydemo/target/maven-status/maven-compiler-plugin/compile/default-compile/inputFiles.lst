@@ -1,8 +1,9 @@
 C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\JerseydemoApplication.java
+C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\model\Company.java
+C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\repository\SettingsRepository.java
 C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\JerseyConfig.java
-C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\Settings.java
 C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\model\Customer.java
 C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\repository\CustomerRepository.java
 C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\service\CustomerService.java
-C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\Company.java
+C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\model\Settings.java
 C:\Users\stefan.tomasik\Documents\jerseywithspring\jerseydemo\src\main\java\com\sovy\CustomerResource.java
