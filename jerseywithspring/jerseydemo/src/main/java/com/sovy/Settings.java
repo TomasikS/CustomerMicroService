@@ -21,13 +21,20 @@ import javax.persistence.Table;
  *
  * @author stefan.tomasik
  */
-@Entity
-@Table(name = "Settings")
+//
 public class Settings implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    
+      public Settings(){}
+    
+    public Settings(String preferedLang, String mena) {
+        this.preferedLang = preferedLang;
+        this.mena = mena;
+    }
 
     //  @OneToOne(targetEntity=Customer.class,cascade=CascadeType.ALL)  
     //  private Customer customer;

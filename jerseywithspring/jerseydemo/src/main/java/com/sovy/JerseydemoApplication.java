@@ -11,13 +11,4 @@ public class JerseydemoApplication extends SpringBootServletInitializer {
         new JerseydemoApplication().configure(new SpringApplicationBuilder(JerseydemoApplication.class)).run(args);
     }
 
-//    @Bean
-//public DataSource dataSource(){
-//    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//    dataSource.setDriverClassName("org.postgresql.Driver");
-//    dataSource.setUrl("jdbc:postgresql://localhost:5432/bookstore");
-//    dataSource.setUsername( "postgres" );
-//    dataSource.setPassword( "postgres" );
-//    return dataSource;
-//}
 }
