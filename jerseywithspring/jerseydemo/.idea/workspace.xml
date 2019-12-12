@@ -1,68 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-    <component name="ChangeListManager">
-        <list default="true" id="d5c91d15-0921-408d-8000-ee3b0a060bab" name="Default Changelist" comment="" />
-        <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-        <option name="SHOW_DIALOG" value="false" />
-        <option name="HIGHLIGHT_CONFLICTS" value="true" />
-        <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-        <option name="LAST_RESOLUTION" value="IGNORE" />
-    </component>
-    <component name="ProjectId" id="1Tv930uFWyg1dv6jE0ozdnbNPA7" />
-    <component name="PropertiesComponent">
-        <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-        <property name="project.structure.last.edited" value="Project" />
-        <property name="project.structure.proportion" value="0.0" />
-        <property name="project.structure.side.proportion" value="0.0" />
-    </component>
-    <component name="RunDashboard">
-        <option name="ruleStates">
-            <list>
-                <RuleState>
-                    <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-                </RuleState>
-                <RuleState>
-                    <option name="name" value="StatusDashboardGroupingRule" />
-                </RuleState>
-            </list>
-        </option>
-    </component>
-    <component name="RunManager">
-        <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-            <option name="MAIN_CLASS_NAME" value="com.sovy.JerseydemoApplication" />
-            <module name="jerseydemo" />
-            <method v="2">
-                <option name="Make" enabled="true" />
-            </method>
-        </configuration>
-    </component>
-    <component name="SvnConfiguration">
-        <configuration />
-    </component>
-    <component name="TaskManager">
-        <task active="true" id="Default" summary="Default task">
-            <changelist id="d5c91d15-0921-408d-8000-ee3b0a060bab" name="Default Changelist" comment="" />
-            <created>1574329498620</created>
-            <option name="number" value="Default" />
-            <option name="presentableId" value="Default" />
-            <updated>1574329498620</updated>
-        </task>
-        <servers />
-    </component>
-    <component name="XDebuggerManager">
-        <breakpoint-manager>
-            <breakpoints>
-                <line-breakpoint enabled="true" type="java-line">
-                    <url>file://$PROJECT_DIR$/src/main/java/com/sovy/CustomerResource.java</url>
-                    <line>91</line>
-                    <option name="timeStamp" value="4" />
-                </line-breakpoint>
-                <line-breakpoint enabled="true" type="java-line">
-                    <url>file://$PROJECT_DIR$/src/main/java/com/sovy/CustomerResource.java</url>
-                    <line>115</line>
-                    <option name="timeStamp" value="5" />
-                </line-breakpoint>
-            </breakpoints>
-        </breakpoint-manager>
-    </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d5c91d15-0921-408d-8000-ee3b0a060bab" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1Tv930uFWyg1dv6jE0ozdnbNPA7" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sovy.JerseydemoApplication" />
+      <module name="jerseydemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d5c91d15-0921-408d-8000-ee3b0a060bab" name="Default Changelist" comment="" />
+      <created>1574329498620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574329498620</updated>
+    </task>
+    <servers />
+  </component>
 </project>

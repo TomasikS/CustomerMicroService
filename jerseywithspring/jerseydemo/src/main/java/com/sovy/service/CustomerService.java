@@ -26,19 +26,19 @@ public class CustomerService {
     }
 
     public void updateCustomer(Customer entity) {
-        Customer customer = repository.findOne(entity.getId());
+        Customer customer = repository.findById(entity.getId()).get();
         repository.save(customer);
     }
     
     public Customer getCustomer(Long id) {
-        Customer customer = repository.findOne(id);
+       Customer customer = repository.findById(id).get();
          return customer;
     }
     
     public void deleteCustomer(Long id)
     {
-     Customer customer = repository.findOne(id);
-     repository.delete(customer);
+  
+     repository.deleteById(id);
     
     }
 
