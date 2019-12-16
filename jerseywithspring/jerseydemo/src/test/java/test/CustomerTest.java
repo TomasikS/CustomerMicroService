@@ -9,16 +9,13 @@ import com.sovy.model.Customer;
 import com.sovy.repository.CustomerRepository;
 import com.sovy.service.CustomerService;
 import java.util.Optional;
-import static org.junit.Assert.assertNotNull;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import org.mockito.Mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
@@ -34,58 +31,45 @@ import org.mockito.junit.jupiter.MockitoExtension;
 //@SpringBootTest
 public class CustomerTest {
 
+    private Customer customer;
+
     @Mock
     CustomerRepository repository;
 
     @InjectMocks
     CustomerService service = new CustomerService();
 
-    @Before
+    @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
-
+        customer = new Customer();
+        customer.setSex("M");
     }
 
     @Test
     public void CreateCustomer() {
         when(repository.save(any(Customer.class))).thenReturn(new Customer());
-        Customer customer = new Customer();
+
         service.createCustomer(customer);
         verify(repository, times(1)).save(eq(customer));
     }
 
     @Test
     public void UpdateCustomer() {
-        Customer Customer = new Customer();
-        Customer zakaznik;
-        Optional<Customer> returnedCustomer = Optional.of(Customer);
-
-        returnedCustomer = repository.findById(1L);
-
-        if (returnedCustomer.isPresent()) {
-            zakaznik = returnedCustomer.get();
-            repository.save(zakaznik);
-            verify(repository, times(1)).save(eq(zakaznik));
-        }
+        service.updateCustomer(customer);
+        verify(repository, times(1)).save(eq(customer));
     }
 
     @Test
     public void DeleteCustomer() {
-        verify(repository, never()).delete(any(Customer.class));
+        service.deleteCustomer(1L);
+        verify(repository, times(1)).deleteById(eq(1L));
     }
 
     @Test
     public void GetCustomer() {
-        Customer Customer = new Customer();
-        Customer zakaznik;
-        Optional<Customer> returnedCustomer = Optional.of(Customer);
-
-        returnedCustomer = repository.findById(1L);
-
-        if (returnedCustomer.isPresent()) {
-            zakaznik = returnedCustomer.get();
-            assertNotNull(zakaznik);
-        }
-
+        when(repository.findById(any(Long.class))).thenReturn(Optional.of(customer));
+        service.getCustomer(1L);
+        verify(repository, times(1)).findById(eq(1L));
     }
 }
