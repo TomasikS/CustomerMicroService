@@ -15,7 +15,6 @@ import javax.persistence.Id;
  *
  * @author stefan.tomasik
  */
-
 @Entity
 public class Company {
 

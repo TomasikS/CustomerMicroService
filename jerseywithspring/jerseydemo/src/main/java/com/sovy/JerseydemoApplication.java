@@ -9,11 +9,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 @EnableAutoConfiguration
 public class JerseydemoApplication
-extends SpringBootServletInitializer  {
+        extends SpringBootServletInitializer {
+
     public static void main(String[] args) {
-       new JerseydemoApplication().configure(new SpringApplicationBuilder(JerseydemoApplication.class)).run(args);
-    
-    //SpringApplication.run(Application.class, args);
+        new JerseydemoApplication().configure(new SpringApplicationBuilder(JerseydemoApplication.class)).run(args);
+
+        //SpringApplication.run(Application.class, args);
     }
 
 }

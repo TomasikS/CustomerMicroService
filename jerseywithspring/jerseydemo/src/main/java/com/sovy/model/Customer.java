@@ -130,7 +130,7 @@ public class Customer implements Serializable {
 
     @OneToOne(targetEntity = Settings.class)
     private Settings settings;
-    
+
     @OneToOne
     private Company company;
 
@@ -141,7 +141,6 @@ public class Customer implements Serializable {
     public void setCompany(Company company) {
         this.company = company;
     }
-    
 
     public Settings getSettings() {
         return settings;

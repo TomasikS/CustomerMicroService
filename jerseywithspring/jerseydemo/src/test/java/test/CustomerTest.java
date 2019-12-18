@@ -49,13 +49,14 @@ public class CustomerTest {
     @Test
     public void CreateCustomer() {
         when(repository.save(any(Customer.class))).thenReturn(new Customer());
-
         service.createCustomer(customer);
         verify(repository, times(1)).save(eq(customer));
     }
 
     @Test
     public void UpdateCustomer() {
+        customer.setId(1L);
+        when(repository.findById(any(Long.class))).thenReturn(Optional.of(customer));
         service.updateCustomer(customer);
         verify(repository, times(1)).save(eq(customer));
     }

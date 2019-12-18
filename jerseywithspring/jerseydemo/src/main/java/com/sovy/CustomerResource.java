@@ -20,7 +20,6 @@ public class CustomerResource {
 
     @Autowired
     CustomerService db;
-    
 
     @Path("customer/{id}")
     @PUT
@@ -54,7 +53,7 @@ public class CustomerResource {
     @DELETE
     @Path("customer/{id}")
     public Response deleteCustomerById(@PathParam("id") Long id) {
-          Customer customer = null;
+        Customer customer = null;
         db.deleteCustomer(id);
 
         return Response

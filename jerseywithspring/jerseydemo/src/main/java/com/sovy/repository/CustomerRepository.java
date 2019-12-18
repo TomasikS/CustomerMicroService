@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
 @Transactional
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    
+
 }

@@ -29,17 +29,16 @@ public class CustomerService {
         Customer customer = repository.findById(entity.getId()).get();
         repository.save(customer);
     }
-    
+
     public Customer getCustomer(Long id) {
-       Customer customer = repository.findById(id).get();
-         return customer;
+        Customer customer = repository.findById(id).get();
+        return customer;
     }
-    
-    public void deleteCustomer(Long id)
-    {
-  
-     repository.deleteById(id);
-    
+
+    public void deleteCustomer(Long id) {
+
+        repository.deleteById(id);
+
     }
 
 }

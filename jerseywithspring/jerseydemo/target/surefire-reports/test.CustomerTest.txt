@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: test.CustomerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.101 s <<< FAILURE! - in test.CustomerTest
-UpdateCustomer  Time elapsed: 0.012 s  <<< ERROR!
-java.util.NoSuchElementException: No value present
-	at test.CustomerTest.UpdateCustomer(CustomerTest.java:59)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.21 s - in test.CustomerTest
