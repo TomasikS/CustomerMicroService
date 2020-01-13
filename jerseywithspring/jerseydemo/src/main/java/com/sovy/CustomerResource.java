@@ -50,7 +50,7 @@ public class CustomerResource {
                 .build();
     }
 
-    @DELETE
+  /*  @DELETE
     @Path("customer/{id}")
     public Response deleteCustomerById(@PathParam("id") Long id) {
         Customer customer = null;
@@ -60,6 +60,6 @@ public class CustomerResource {
                 .status(200)
                 .entity(customer)
                 .build();
-    }
+    }*/
 
 }

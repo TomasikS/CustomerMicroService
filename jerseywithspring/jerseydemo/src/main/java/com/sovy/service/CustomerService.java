@@ -34,11 +34,11 @@ public class CustomerService {
         Customer customer = repository.findById(id).get();
         return customer;
     }
-
+/*
     public void deleteCustomer(Long id) {
 
         repository.deleteById(id);
 
     }
-
+*/
 }

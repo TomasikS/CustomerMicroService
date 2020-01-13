@@ -61,11 +61,11 @@ public class CustomerTest {
         verify(repository, times(1)).save(eq(customer));
     }
 
-    @Test
+   /* @Test
     public void DeleteCustomer() {
         service.deleteCustomer(1L);
         verify(repository, times(1)).deleteById(eq(1L));
-    }
+    }*/
 
     @Test
     public void GetCustomer() {
